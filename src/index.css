@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+@theme {
+  --color-accent-blue: #00d2ff;
+  --color-accent-teal: #00f2fe;
+  --color-accent-red: #ff3b3b;
+  --color-bg-navy: #050b14;
+  --color-bg-card: rgba(10, 16, 30, 0.6);
+  --color-glass: rgba(255, 255, 255, 0.05);
+  
+  --animate-pulse-slow: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-float: float 6s ease-in-out infinite;
+
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+  }
+}
+
+@layer base {
+  :root {
+    --background: var(--color-bg-navy);
+    --foreground: #ffffff;
+  }
+  
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    @apply antialiased min-h-screen overflow-x-hidden selection:bg-accent-blue selection:text-white;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/5 backdrop-blur-md border border-white/10 shadow-lg;
+  }
+  .glass-card {
+    @apply bg-[var(--color-bg-card)] backdrop-blur-xl border border-white/10 shadow-xl rounded-2xl;
+  }
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-accent-blue to-accent-teal;
+  }
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-accent-teal/50 focus:ring-offset-2 focus:ring-offset-bg-navy;
+  }
+}
+
+/* Leaflet Map overrides for dark mode */
+.leaflet-container {
+  background: var(--color-bg-navy) !important;
+  font-family: inherit !important;
+}
+.leaflet-bar a {
+  background-color: rgba(255,255,255,0.1) !important;
+  color: white !important;
+  border-bottom: 1px solid rgba(255,255,255,0.2) !important;
+  backdrop-filter: blur(4px);
+}
+.leaflet-bar a:hover {
+  background-color: rgba(255,255,255,0.2) !important;
+}
+.leaflet-popup-content-wrapper, .leaflet-popup-tip {
+  background: rgba(10, 16, 30, 0.9) !important;
+  color: white !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+}
