@@ -1,5 +1,5 @@
 import React from 'react';
-import { Github, Twitter, Mail } from 'lucide-react';
+import { Globe, Share2, Mail } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -14,12 +14,12 @@ const Footer = () => {
 
         <div className="flex items-center space-x-6">
           <a href="#" className="text-gray-400 hover:text-accent-blue transition-colors focus-ring rounded-full p-1">
-            <span className="sr-only">Twitter</span>
-            <Twitter className="w-5 h-5" />
+            <span className="sr-only">Network</span>
+            <Globe className="w-5 h-5" />
           </a>
           <a href="#" className="text-gray-400 hover:text-white transition-colors focus-ring rounded-full p-1">
-            <span className="sr-only">GitHub</span>
-            <Github className="w-5 h-5" />
+            <span className="sr-only">Share</span>
+            <Share2 className="w-5 h-5" />
           </a>
           <a href="#" className="text-gray-400 hover:text-accent-teal transition-colors focus-ring rounded-full p-1">
             <span className="sr-only">Email</span>
